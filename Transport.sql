@@ -5,29 +5,31 @@ UserTypeId int not null,
 UserTypeName varchar(50),
 primary key(UserTypeId));
 
+insert into UserType(UserTypeId, UserTypeName) values(1,'User')
+insert into UserType(UserTypeId, UserTypeName) values(2,'Admin')
+
 
 create table Bus(
-BuFId int not null,
+BusId int not null,
 fare decimal(18,2),
 AarrivalTime datetime ,
 DepartureTime datetime ,
 TravellingDate_span datetime,
 NoOfPassengers int,
 Availableseats int,
-RouteId int FOREIGN KEY REFERENCES Route(RouteId),
-DriverId int FOREIGN KEY REFERENCES Driver(DriverId),
-ReturnId int FOREIGN KEY REFERENCES Route(ReturnId));
+primary key(BusId),
+)
 
-
+alter table Bus
+add constraint  FK_Route_Bus_RouteId foreign key (RouteId) references Bus (RouteId)
 
 create table Route(
 RouteId int not null,
 DepartureStation varchar(50),
 DestinationStation varchar(50),
 TypeofTicket  varchar(50),
-type_of_ticket varchar(50) null,
-BusId int FOREIGN KEY REFERENCES Bus(BusId),
-DriverId int FOREIGN KEY REFERENCES Driver(DriverId));
+primary key (RouteId),
+)
 
 
 create table Customer(
@@ -42,7 +44,7 @@ City varchar(50),
 Pincode int,
 ContactNo int, 
 primary key (CustomerId),
-UserId int FOREIGN KEY REFERENCES Login(UserId));
+)
 
 
 
@@ -56,7 +58,7 @@ CardHolderName varchar(50),
 TotalAmount decimal(18,2),
 BookingId int not null,
 primary key(PaymentId),
-BookingId int FOREIGN KEY REFERENCES TicketBooking(BookingId));
+)
 
 
 create table Login(
@@ -64,7 +66,7 @@ UserId int,
 Password varchar(50),
 UserTypeId int not null,
 primary key(UserId),
-UserTypeId int FOREIGN KEY REFERENCES UserType(UserTypeId));
+)
 
 
 create table TicketBooking(
@@ -75,7 +77,7 @@ DateOfBooking date,
 TotalAmount decimal(18,2), 
 CustomerId int not null,
 primary key(BookingId),
-CustomerId int FOREIGN KEY REFERENCES Customer(CustomerId));
+)
 
 
 create table TicketCancellation(
@@ -85,11 +87,11 @@ RefundAmount decimal(18,2),
 CancellationDate date,
 ReturnId int not null,
 primary key(CancellationId),
-ReturnId int FOREIGN KEY REFERENCES Return(ReturnId));
+)
 
 
 
-create table Return (
+create table ReturnDetails(
 ReturnId int not null,
 ReturnDate date, 
 primary key(ReturnId));
@@ -100,4 +102,4 @@ primary key(ReturnId));
  DriverContact varchar(50),
  RouteId int ,
  primary key(DriverId),
- RouteId int FOREIGN KEY REFERENCES Route(RouteId));
+ )
