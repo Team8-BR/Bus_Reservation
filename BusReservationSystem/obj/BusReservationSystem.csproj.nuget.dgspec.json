@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\aspdotnet\\BusReservationSystem\\BusReservationSystem.csproj": {}
+    "D:\\My Project Repository\\Bus_Reservation\\BusReservationSystem\\BusReservationSystem.csproj": {}
   },
   "projects": {
-    "D:\\aspdotnet\\BusReservationSystem\\BusReservationSystem.csproj": {
+    "D:\\My Project Repository\\Bus_Reservation\\BusReservationSystem\\BusReservationSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\aspdotnet\\BusReservationSystem\\BusReservationSystem.csproj",
+        "projectUniqueName": "D:\\My Project Repository\\Bus_Reservation\\BusReservationSystem\\BusReservationSystem.csproj",
         "projectName": "BusReservationSystem",
-        "projectPath": "D:\\aspdotnet\\BusReservationSystem\\BusReservationSystem.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\aspdotnet\\BusReservationSystem\\obj\\",
+        "projectPath": "D:\\My Project Repository\\Bus_Reservation\\BusReservationSystem\\BusReservationSystem.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "D:\\My Project Repository\\Bus_Reservation\\BusReservationSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,6 +61,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.22, 3.1.22]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
