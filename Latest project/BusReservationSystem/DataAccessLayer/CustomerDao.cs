@@ -1,4 +1,5 @@
 ﻿using BusReservationSystem.Repository;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -149,6 +150,33 @@ namespace BusReservationSystem.DataAccessLayer
             {
                 throw ex;
             }
+        }
+
+        public int DeleteCustomer(int id)
+        {
+
+            try
+            {
+                using (var db = new BustravelContext())
+                {
+                    DbSet<Customer> customer = db.Customer;
+
+                    Customer customer1 = customer.Where(p => p.CustomerId == id).FirstOrDefault();
+                    customer.Remove(customer1);
+                    int rawAffected = db.SaveChanges();
+                    return rawAffected;
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
 

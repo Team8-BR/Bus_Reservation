@@ -1,4 +1,5 @@
 ﻿using BusReservationSystem.Repository;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -124,9 +125,34 @@ namespace BusReservationSystem.DataAccessLayer
                 throw ex;
             }
         }
+        public int DeleteBusType(int id)
+        {
 
+            try
+            {
+                using (var db = new BustravelContext())
+                {
+                    DbSet<BusType> busType = db.BusType;
 
-        public bool InsertBusTypeInfo(BusTypeDao p)
+                    BusType busType1 = busType.Where(p => p.BusTypeId == id).FirstOrDefault();
+                    busType.Remove(busType1);
+                    int rawAffected = db.SaveChanges();
+                    return rawAffected;
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public BusTypeDao fetchDetailsById(int id)
         {
             throw new NotImplementedException();
         }
@@ -136,14 +162,10 @@ namespace BusReservationSystem.DataAccessLayer
             throw new NotImplementedException();
         }
 
-       
-
-        BusTypeDao IBusTypeDao.fetchDetailsById(int id)
+        public bool InsertBusTypeInfo(BusTypeDao p)
         {
             throw new NotImplementedException();
         }
-
-        
     }
 }
 

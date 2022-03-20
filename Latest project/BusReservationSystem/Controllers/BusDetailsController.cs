@@ -1,6 +1,6 @@
 ﻿using BusReservationSystem.DataAccessLayer;
 using Microsoft.AspNetCore.Mvc;
-
+using System;
 
 namespace BusReservationSystem.Controllers
 {
@@ -10,9 +10,10 @@ namespace BusReservationSystem.Controllers
     public class BusDetailsController : Controller
     {
         private IBusDetailsDao busDetailsDao;
+
         public BusDetailsController(IBusDetailsDao busDetailsDao)
         {
-            busDetailsDao = busDetailsDao;
+            this.busDetailsDao = busDetailsDao;
         }
 
         [HttpGet]
@@ -33,7 +34,7 @@ namespace BusReservationSystem.Controllers
         [HttpPost]
         public IActionResult InsertBusInfo(BusDetailsDao bus)
         {
-            BusDetailsDao busDetailsDao =  new BusDetailsDao();
+            BusDetailsDao busDetailsDao = new BusDetailsDao();
             var result = busDetailsDao.InsertBusInfo(bus);
             return this.CreatedAtAction(
                 "InsertBusInfo",
@@ -45,8 +46,35 @@ namespace BusReservationSystem.Controllers
                 }
                 );
         }
+            [HttpDelete]
+            [Route("id")]
+            public IActionResult DeleteBusDetails(int id)
+            {
+                try
+                {
+                    var result = busDetailsDao.DeleteBusDetails(id);
+                    return this.CreatedAtAction(
+                      "DeleteBusDetails",
+                      new
+                      {
+                          StatusCode = 201,
+                          Response = result,
+                          Data = id
+                      }
+                      );
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+            }
+
+        }
     }
-}
+
+
+
+  
 
 
 

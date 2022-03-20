@@ -8,6 +8,8 @@ namespace BusReservationSystem.DataAccessLayer
 
         List<PaymentsDao> FetchAllDetails();
 
+
+
         bool InsertPaymentsInfo(PaymentsDao p);
 
     }

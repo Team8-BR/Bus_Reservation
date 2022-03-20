@@ -8,6 +8,8 @@ namespace BusReservationSystem.DataAccessLayer
 
         List<CustomerDao> FetchAllDetails();
 
+        int DeleteCustomer(int id);
+
         bool InsertCustomerInfo(CustomerDao p);
     }
 }

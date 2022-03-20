@@ -7,6 +7,8 @@ namespace BusReservationSystem.DataAccessLayer
         BusDetailsDao fetchDetailsById(int id);
 
         List<BusDetailsDao> FetchAllDetails();
+        int DeleteBusDetails(int id);
+
 
         bool InsertBusInfo(BusDetailsDao p);
 

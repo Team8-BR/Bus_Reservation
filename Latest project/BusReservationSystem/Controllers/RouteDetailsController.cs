@@ -1,5 +1,6 @@
 ﻿using BusReservationSystem.DataAccessLayer;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BusReservationSystem.Controllers
 {
@@ -44,6 +45,30 @@ namespace BusReservationSystem.Controllers
                 }
                 );
         }
+
+        [HttpDelete]
+        [Route("id")]
+        public IActionResult DeleteRouteDetails(int id)
+        {
+            try
+            {
+                var result = routeDetailsDao.DeleteRouteDetails(id);
+                return this.CreatedAtAction(
+                  "DeleteRouteDetails",
+                  new
+                  {
+                      StatusCode = 201,
+                      Response = result,
+                      Data = id
+                  }
+                  );
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using BusReservationSystem.Repository;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -129,21 +130,44 @@ namespace BusReservationSystem.DataAccessLayer
                 throw ex;
             }
         }
-   
+        public int DeleteBusDetails(int id)
+        {
+
+            try
+            {
+                using (var db = new BustravelContext())
+                {
+                    DbSet<BusDetails> busDetails = db.BusDetails;
+
+                    BusDetails busDetails1 = busDetails.Where(p => p.BusId == id).FirstOrDefault();
+                    busDetails.Remove(busDetails1);
+                    int rawAffected = db.SaveChanges();
+                    return rawAffected;
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public BusDetailsDao fetchDetailsById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<BusDetailsDao> IBusDetailsDao.FetchAllDetails()
+        {
+            throw new NotImplementedException();
+        }
 
         public bool InsertBusInfo(BusDetailsDao p)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<BusDetailsDao>  IBusDetailsDao.FetchAllDetails()
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        BusDetailsDao IBusDetailsDao.fetchDetailsById(int id)
         {
             throw new NotImplementedException();
         }

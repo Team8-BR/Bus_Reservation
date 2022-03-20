@@ -1,4 +1,5 @@
 ﻿using BusReservationSystem.Repository;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -119,6 +120,32 @@ namespace BusReservationSystem.DataAccessLayer
             }
         }
 
+        public int DeleteUserType(int id)
+        {
+
+            try
+            {
+                using (var db = new BustravelContext())
+                {
+                    DbSet<UserType> userType = db.UserType;
+
+                    UserType userType1 = userType.Where(p => p.UserTypeId == id).FirstOrDefault();
+                    userType.Remove(userType1);
+                    int rawAffected = db.SaveChanges();
+                    return rawAffected;
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public bool InsertUserTypeInfo(UserTypeDao p)
         {
@@ -141,3 +168,4 @@ namespace BusReservationSystem.DataAccessLayer
     }
 }
 
+        

@@ -8,6 +8,9 @@ namespace BusReservationSystem.DataAccessLayer
 
         List<RouteDetailsDao> FetchAllDetails();
 
+        int DeleteRouteDetails(int id);
+
+
         bool InsertRouteInfo(RouteDetailsDao p);
 
     }

@@ -8,6 +8,9 @@ namespace BusReservationSystem.DataAccessLayer
 
         List<UserTypeDao> FetchAllDetails();
 
+        int DeleteUserType(int id);
+
+
         bool InsertUserTypeInfo(UserTypeDao p);
 
     }

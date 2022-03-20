@@ -8,6 +8,8 @@ namespace BusReservationSystem.DataAccessLayer
 
             List<BusTypeDao> FetchAllDetails();
 
+            int DeleteBusType(int id);
+
             bool InsertBusTypeInfo(BusTypeDao p);
 
         }
