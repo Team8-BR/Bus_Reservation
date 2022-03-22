@@ -37,7 +37,7 @@ namespace BusReservationSystem.Repository
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-5D4VGK2;Database=Bustravel;User id=sa;Password=Deshmukh");
+                optionsBuilder.UseSqlServer("Persist Security Info=False;Integrated Security=true; Initial Catalog = BusTravel; Server = MSSQL");
             }
         }
 
