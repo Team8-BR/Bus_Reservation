@@ -32,8 +32,8 @@ namespace BusReservationSystem
             services.AddSingleton<IRouteDetailsDao, RouteDetailsDao>();
             services.AddSingleton<IUserTypeDao, UserTypeDao>();
             services.AddSingleton<ITicketBookingDao, TicketBookingDao>();
-            //services.AddSingleton<ITicketCancellationDao, TicketCancellationDao>();
-            //services.AddSingleton<ITypeOfTicketDao, TypeOfTicketDao>();
+            services.AddSingleton<ITicketCancellationDao, TicketCancellationDao>();
+            services.AddSingleton<ITypeOfTicketDao, TypeOfTicketDao>();
             services.AddControllers();
         }
 
