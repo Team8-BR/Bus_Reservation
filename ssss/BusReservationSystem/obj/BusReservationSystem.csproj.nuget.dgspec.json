@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\aspdotnet\\BusReservationSystem\\BusReservationSystem.csproj": {}
+    "D:\\ss\\Bustravel\\ssss\\BusReservationSystem\\BusReservationSystem.csproj": {}
   },
   "projects": {
-    "D:\\aspdotnet\\BusReservationSystem\\BusReservationSystem.csproj": {
+    "D:\\ss\\Bustravel\\ssss\\BusReservationSystem\\BusReservationSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\aspdotnet\\BusReservationSystem\\BusReservationSystem.csproj",
+        "projectUniqueName": "D:\\ss\\Bustravel\\ssss\\BusReservationSystem\\BusReservationSystem.csproj",
         "projectName": "BusReservationSystem",
-        "projectPath": "D:\\aspdotnet\\BusReservationSystem\\BusReservationSystem.csproj",
+        "projectPath": "D:\\ss\\Bustravel\\ssss\\BusReservationSystem\\BusReservationSystem.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\aspdotnet\\BusReservationSystem\\obj\\",
+        "outputPath": "D:\\ss\\Bustravel\\ssss\\BusReservationSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
