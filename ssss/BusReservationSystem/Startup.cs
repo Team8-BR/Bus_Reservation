@@ -1,5 +1,6 @@
 using BusReservationSystem.DataAccessLayer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,8 +36,10 @@ namespace BusReservationSystem
             services.AddSingleton<ITicketCancellationDao, TicketCancellationDao>();
             services.AddSingleton<ITypeOfTicketDao, TypeOfTicketDao>();
             services.AddControllers();
-        }
 
+            services.AddCors();
+        }
+            
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -48,6 +51,16 @@ namespace BusReservationSystem
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            Action<CorsPolicyBuilder> action = (CorsPolicyBuilder builder) =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            };
+            app.UseCors(action);
+
             app.UseStaticFiles();
 
             app.UseRouting();
