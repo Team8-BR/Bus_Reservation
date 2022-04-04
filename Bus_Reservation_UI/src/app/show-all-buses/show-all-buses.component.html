@@ -1,0 +1,32 @@
+<div class="col-md-9 offset-md-2 card card-body mt-3">
+    <table class="table table-bordered table-hover table-striped">
+        <thead style="background:darkgrey">
+            <td>Schedule Id</td>
+            <td>Bus Id</td>
+            <td>Driver Name</td>
+            <td>Route Id</td>
+            <td>Bus Departure Date</td>
+            <td>Bus Arrival Date</td>
+            <td>Booked Seats</td>
+            <td>Available Seats</td>
+            <td>Arrival Time</td>
+            <td>Departure Time</td>
+            <td>Fare Id</td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let bus of buses'>
+                <td>{{bus.scheduleId}}</td>
+                <td>{{bus.busId}}</td>
+                <td>{{bus.driverName}}</td>
+                <td>{{bus.routeId}}</td>
+                <td>{{bus.departureDate}}</td>
+                <td>{{bus.arrivalDate}}</td>
+                <td>{{bus.bookedSeats}}</td>
+                <td>{{bus.availableSeats}}</td>
+                <td>{{bus.arrivalTime}}</td>
+                <td>{{bus.departureTime}}</td>
+                <td>{{bus.fareId}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

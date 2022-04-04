@@ -1,0 +1,78 @@
+<div class="col-md-4 offset-4 mt-6 card" style="background:darkgrey">
+    <div class="card-body">
+    <form #makepayment="ngForm" (ngSubmit)="makePayment(makepayment)">
+        <h1 class="h1 text-center">Payment </h1>
+        <div class="form-group">
+            <label for="paymentId" class="text-success">PaymentId</label>
+            <input type="number" #paymentId="ngModel" ngModel name="paymentId" id="paymentId" class="form-control" required
+                placeholder="Enter Payment id">
+            <div *ngIf="paymentId.touched && paymentId.invalid">
+                <p class="alert alert-danger"> *This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cardType" class="text-success">Card Type</label>
+            <input type="text" #cardType="ngModel" ngModel name="cardType" id="cardType" class="form-control" required
+                placeholder="Enter Card Type">
+            <div *ngIf="cardType.touched && cardType.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="bankName" class="text-success">Bank Name
+                </label>
+            <input type="text" #bankName="ngModel" ngModel name="bankName" id="bankName" class="form-control"
+                required placeholder="Enter Bank Name">
+            <div *ngIf="bankName.touched && bankName.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cardNumber" class="text-success">Card Number
+                </label>
+            <input type="number" #cardNumber="ngModel" ngModel name="cardNumber" id="cardNumber"
+                class="form-control" required placeholder="Enter Card Number">
+            <div *ngIf="cardNumber.touched && cardNumber.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cardHolderName" class="text-success">Card Holder Name
+                </label>
+            <input type="text" #cardHolderName="ngModel" ngModel name="cardHolderName" id="cardHolderName" class="form-control"
+                required placeholder="Enter Card Holder Name">
+            <div *ngIf="cardHolderName.touched && cardHolderName.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cost" class="text-success">Total Amount</label>
+            <input type="number" #cost="ngModel" ngModel name="cost" id="cost" class="form-control" required
+                placeholder="Enter Ticket Price">
+            <div *ngIf="cost.touched && cost.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="bookingId" class="text-success">Booking Id</label>
+            <input type="number" #bookingId="ngModel" ngModel name="bookingId" id="bookingId" class="form-control" required
+                placeholder="Enter Booking Id">
+            <div *ngIf="bookingId.touched && bookingId.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary float-right" [disabled]="makepayment.invalid">Make Payment </button>
+
+
+    </form>
+    </div>
+</div>
